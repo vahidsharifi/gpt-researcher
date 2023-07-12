@@ -1,17 +1,20 @@
 from __future__ import annotations
+from dotenv import load_dotenv
+
 from fastapi import WebSocket
 import time
 import os
-
 import openai
 from colorama import Fore, Style
 from openai.error import APIError, RateLimitError
 
 from config import Config
 
+load_dotenv()
+
 CFG = Config()
 
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 from typing import Optional
 import logging
