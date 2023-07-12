@@ -1,6 +1,7 @@
 from __future__ import annotations
 from fastapi import WebSocket
 import time
+import os
 
 import openai
 from colorama import Fore, Style
@@ -10,7 +11,7 @@ from config import Config
 
 CFG = Config()
 
-openai.api_key = CFG.openai_api_key
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 from typing import Optional
 import logging
